@@ -1,8 +1,13 @@
-class Solution:    
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        anagram_dict = defaultdict(list)
-        for strings in strs:
-            key = ''.join(sorted(strings))
-            anagram_dict[key].append(strings)
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        i = 0
+        n = len(nums)
 
-        return list(anagram_dict.values())
+        while i < n:
+            if nums[i] == val:
+                nums[i] = nums[n - 1]
+                n -= 1
+            else:
+                i += 1
+
+        return n
